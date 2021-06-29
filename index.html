@@ -10,9 +10,75 @@
     <body>
         <header>
             Хедер сторінки my
-			<br>
-            еуіе
-            <hr>
+
+
+            <ul id="menu">
+                <li>
+                    <a href="#" title="Title teg a" >Тестовий</a>
+                    <ul>
+                        <li><a href="#" title="Title teg a" >1Тестовий</a></li>
+                        <li><a href="#" title="Title teg a" >1Тестовий</a></li>
+                        <li><a href="#" title="Title teg a" >1ТестовB</a></li>
+                        <li><a href="#" title="Title teg a" >1Тестовий</a></li>
+                        <li><a href="#" title="Title teg a" >1Тестовий</a></li>
+                        <li><a href="#" title="Title teg a" >1Тестовий</a></li>
+                        <li><a href="#" title="Title teg a" >1Тестовий</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Title teg a" >Тестовий</a></li>
+                <li><a href="#" title="Title teg a" >ТестовB</a></li>
+                <li><a href="#" title="Title teg a" >Тестовий</a></li>
+                <li><a href="#" title="Title teg a" >Тестовий</a></li>
+                <li><a href="#" title="Title teg a" >Тестовий</a></li>
+                <li><a href="#" title="Title teg a" >Тестовий</a></li>
+
+            </ul>
+
+            <style>
+                ul#menu > li > ul {
+                    display: none;
+                    background: yellow;
+                    position: absolute;
+                    width: 100px;
+                    padding: 0px;
+
+                }
+                ul#menu > li > ul > li > a {
+                    display: block;
+                    width: 100%;
+
+                }
+                #menu > li:hover ul {
+                    display: block;
+
+                }
+
+                ul#menu {
+                    display: inline-block;
+                }
+                #menu li {
+                    display: block;
+
+                }
+                #menu > li {
+                    position: relative;
+                    float: left;
+                }
+                #menu > li a {
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-size: 14px;
+                    padding: 5px 15px;
+                    background: red;
+
+                }
+                header {background: green;}
+
+
+            </style>
+
+
+
         </header>
         <article>
             <!-- ****************** -->
