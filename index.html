@@ -9,7 +9,104 @@
 </head>
     <body>
         <header>
-            Хедер сторінки
+            <div class="becground">
+                <div class="center">
+                    <div class="left">
+                        <h1>БЛОГ ІТ_МИНИМАЛИСТА</h1>
+                    </div>
+                    <div class="right">
+                        <ul>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="#">Об авторе</a></li>
+                            <li><a href="#">Я ВКОНТАКТЕ</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="becround-blac">
+                <div class="center">
+                    <div class="holmenu">
+                        <ul>
+                            <li><a href="#">Безопасность</a></li>
+                            <li><a href="#">Програмирование</a></li>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Музика</a></li>
+                            <li><a href="#">Саморазвитие</a></li>
+                            <li><a href="#">Гайди</a></li>
+                            <li><a href="#">Обзори</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                header {
+                    font-family: sans-serif;}
+
+                header .becground {
+                    background: white;
+                    display: inline-block;
+                    width: 100%;}
+
+                header .center {
+                    width: 100%;
+                    max-width: 1000px;
+                    margin: 0 auto;}
+
+                header .left {
+                    float: left;}
+
+                header h1 {
+                    font-size: 28px;
+                    padding-left: -17px;}
+
+                header .becground .center .right {
+                    float: right;}
+
+                header ul {
+                    display: inline-block;}
+
+                header .becground .center .right > ul {
+                    padding-top: 8px;}
+
+                header ul li {
+                    display: block;
+                    float: left;}
+
+                header  a {
+                    text-decoration: unset;
+                    font-size: 20px;}
+
+                header .becground .center .right > ul > li > a {
+                    color: black;
+                    padding: 12px;}
+
+                header .becground .center .right > ul > li > a:hover {
+                    text-decoration: underline;
+                    opacity: 0.5;}
+
+                /*************************************************************************/
+                header .becround-blac {
+                    background: black;
+                    display: inline-block;
+                    width: 100%;}
+                header .holmenu{
+                    display: inline-block;
+                    width: 100%;}
+                header .becround-blac .holmenu > ul {
+                    padding: 0px;}
+
+                header .becround-blac .holmenu > ul > li {
+                    padding-right: 29px;}
+                header .becround-blac .holmenu > ul > li > a {
+                    color: white;}
+                header .becround-blac .holmenu > ul > li > a:hover {
+                    text-decoration: underline overline;
+                    opacity: 0.5;}
+
+            </style>
+
 
         </header>
         <div id="content">
