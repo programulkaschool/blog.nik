@@ -91,7 +91,31 @@ require ('include/head.php');
                             <div class="block" id="comment-add-form">
                                 <h3>Добавить комментарий</h3>
                                 <div class="block__content">
-                                    <form class="form">
+                                    <form class="form" method="post" action="article.php?id=<?php echo $art['id'];?>">
+
+                                        <?php
+                                       // var_dump($_POST['text']);
+
+                                        if (isset($_POST['do_post'])) {
+                                            $error = array();
+                                            if ($_POST['name'] == '') {
+                                                $error [] = 'Введіть Ім\'я';
+                                            }
+                                            if ($_POST['nickname'] == '') {
+                                                $error [] = 'Введіть Нік';
+                                            }
+                                            if ($_POST['text'] == '') {
+                                                $error [] = 'Введіть Текст комментария';
+                                            }
+                                            if (empty($error)) {
+                                                mysqli_query($connection, "INSERT INTO `comments` (`name`, `author`, `text`, `date`, `articles_id`) VALUES ('".$_POST['name']."', '".$_POST['nickname']."', '".$_POST['text']."', NOW() , '".$art['id']."')");
+                                                echo '<span style="color: #00d118; font-weight: bold;">Комент добавлений</span><hr>';
+                                            } else {
+                                                echo'<span style="color: red; font-weight: bold;">'.$error[0].'</span><hr>';
+                                            }
+                                        }
+
+                                        ?>
                                         <div class="form__group">
                                             <div class="row">
                                                 <div class="col-md-6">

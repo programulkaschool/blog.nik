@@ -60,7 +60,7 @@
             <div class="articles articles__vertical">
 
                 <?php
-                $coments = mysqli_query($connection, "SELECT * FROM `comments` WHERE `articles_id`=".(int)$_GET['id']." ORDER BY `comments`.`date` DESC");
+                $coments = mysqli_query($connection, "SELECT * FROM `comments` ORDER BY `id` DESC LIMIT 5");
                 if (mysqli_num_rows( $coments) <= 0) {
                 echo "Коментарів немає";
                 }else{
@@ -88,15 +88,9 @@
                                         echo $articl["title"];
                                         echo '</a></small>';
 
-
                                     }
-
                                 }
-
-
-
-
-                            /*$coment_title = mysqli_query($connection, "SELECT * FROM `articles` WHERE `id`=".$coment["articles_id"]);
+                                /*$coment_title = mysqli_query($connection, "SELECT * FROM `articles` WHERE `id`=".$coment["articles_id"]);
                             $comt = mysqli_fetch_assoc($coment_title);
                             //var_dump($comt["title"]);
 
@@ -112,12 +106,7 @@
                 </article>
                 <?php
                     }
-
-
                 }
-
-
-
                 ?>
 
 
