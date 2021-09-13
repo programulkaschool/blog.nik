@@ -61,16 +61,24 @@
 
                         <div class="article__info__meta">
                             <?php
-                            $articles_select0=mysqli_query($connection, "SELECT * FROM `articles`");
+                            $articles_title=mysqli_query($connection, "SELECT * FROM `articles` WHERE `id`=".$articles1['articles_id']);
+                            //var_dump($articles_title);
+
+                            $title = mysqli_fetch_assoc($articles_title);
+                            //var_dump($title['title']);
+                            echo '<small>Назва статті:<a href="article.php?id='.$title['id'].'">'.$title['title'].'</a></small>';
+
+
+                            /*$articles_select0=mysqli_query($connection, "SELECT * FROM `articles`");
                             $articles_array=array();
                             while($articles0 = mysqli_fetch_assoc($articles_select0)) {
                                 $articles_array []=$articles0;
                             }
                             foreach ($articles_array as $articles0){
                                 if ( $articles0["id"] == $articles1['articles_id']){
-                                    echo '<small>Назва статті:<a href="article.php?id='.$articles0['id'].'">'.$articles0['title'].'</a></small>';
+                                    echo '<!--<small>Назва статті:<a href="article.php?id='.$articles0['id'].'">'.$articles0['title'].'</a></small>-->';
                                 }
-                            }
+                            }*/
 
 
                             ?>
