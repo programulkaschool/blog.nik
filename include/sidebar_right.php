@@ -75,14 +75,35 @@
 
 
                             <?php
-                            $coment_title = mysqli_query($connection, "SELECT * FROM `articles` WHERE `id`=".$coment["articles_id"]);
+                            $articl_sel =  mysqli_query($connection, "SELECT * FROM `articles`");
+                            $articl_array = array();
+                            while ($articl = mysqli_fetch_assoc($articl_sel)){
+                                $articl_array[] = $articl;}
+                           // var_dump($articl_array);
+                                foreach ($articl_array as $articl){
+                                    if ($coment['articles_id'] == $articl['id']){
+
+                                        echo '<small><a href="article.php?id='.$articl["id"].'">';
+
+                                        echo $articl["title"];
+                                        echo '</a></small>';
+
+
+                                    }
+
+                                }
+
+
+
+
+                            /*$coment_title = mysqli_query($connection, "SELECT * FROM `articles` WHERE `id`=".$coment["articles_id"]);
                             $comt = mysqli_fetch_assoc($coment_title);
                             //var_dump($comt["title"]);
 
                             echo '<small><a href="article.php?id='.$comt["id"].'">';
 
                            echo $comt["title"];
-                           echo '</a></small>';
+                           echo '</a></small>';*/
                             ?>
 
                         </div>
