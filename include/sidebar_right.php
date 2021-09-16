@@ -48,7 +48,7 @@
     <div class="block">
         <h3>Комментарии</h3>
         <div class="block__content">
-            <div class="articles articles__vertical">
+            <div class="articles articles__vertical comment_block">
                 <?php
                 $articles_select1=mysqli_query($connection, "SELECT * FROM `comments` ORDER BY `id` DESC LIMIT 5");
                 while($articles1 = mysqli_fetch_assoc($articles_select1)) { ?>

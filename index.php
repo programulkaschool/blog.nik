@@ -11,6 +11,15 @@ require('include/head.php');
       include('include/header.php');
 ?>
 
+      <style>
+          .new_post .article:nth-child(2n){
+              border: 1px solid red;
+          }
+          .new_post .article:nth-child(2n+1){
+              border: 1px solid #3dff59;
+          }
+      </style>
+
     <div id="content">
       <div class="container">
         <div class="row">
@@ -20,12 +29,13 @@ require('include/head.php');
 
 
 
-              <div class="block">
+              <div class="block new_text">
                   <a href="#">Все записи</a>
-                  <h3>Блок 1 [Новейшее]</h3>
+                  <h3>Нові пости в блозі1111111111111111111</h3>
 
                   <div class="block__content">
-                      <div class="articles articles__horizontal">
+                      <div class="articles articles__horizontal  new_post">
+
 
                           <?php
                           $articles_select = mysqli_query($connection, "SELECT * FROM `articles` ORDER BY `id` DESC LIMIT 6");
@@ -111,6 +121,7 @@ require('include/head.php');
                               ?>
 
                               <article class="article">
+
                                   <div class="article__image"
                                        style="background-image: url('/img/<?php echo $articles['img']; ?>');"></div>
                                   <div class="article__info">
