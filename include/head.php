@@ -17,4 +17,7 @@ require ('config/config.php');
 
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="media/css/style.css">
+    <script src="/javascript/jQuery.min.js" type="text/javascript"></script>
+    <script src="/javascript/jvascript.js" type="text/javascript"></script>
+
 </head>

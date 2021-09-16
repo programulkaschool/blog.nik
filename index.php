@@ -10,14 +10,20 @@ require ('include/head.php');
       ?>
 
       <div id="content">
+          <style>
+             .new_post .article:nth-child(2n) {
+                 border: 1px solid red;
+             }
+          </style>
+
       <div class="container">
         <div class="row">
           <section class="content__left col-md-8">
-            <div class="block">
+            <div class="block new_text">
               <a href="#">Все записи</a>
               <h3>Новейшее_в_блоге</h3>
               <div class="block__content">
-                <div class="articles articles__horizontal">
+                <div class="articles articles__horizontal new_post">
 
                     <?php
                     $articles_select = mysqli_query($connection, "SELECT * FROM `articles` ORDER BY `id` DESC LIMIT 6");

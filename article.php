@@ -94,7 +94,7 @@ require ('include/head.php');
                                     <form class="form" method="post" action="article.php?id=<?php echo $art['id'];?>">
 
                                         <?php
-                                       // var_dump($_POST['text']);
+                                       //var_dump($_POST['text']);
 
                                         if (isset($_POST['do_post'])) {
                                             $error = array();
