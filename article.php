@@ -100,7 +100,7 @@ require('include/head.php');
                   <div class="block" id="comment-add-form">
                       <h3>Добавить комментарий</h3>
                       <div class="block__content">
-                          <form class="form" method="post" action="article.php?id=<?php echo $art['id'];?>#comment-add-form">
+                          <form id="form_comments" class="form" method="post" action="article.php?id=<?php echo $art['id'];?>#comment-add-form">
                               <?php
                               if (isset($_POST['do_post'])) {
                                   $error = array();
@@ -128,19 +128,21 @@ require('include/head.php');
                               <div class="form__group">
                                   <div class="row">
                                       <div class="col-md-6">
-                                          <input type="text" class="form__control" required="" name="name" placeholder="Имя">
+                                          <input type="text" class="form__control name_my_impute" required="" name="name" placeholder="Имя">
                                       </div>
                                       <div class="col-md-6">
-                                          <input type="text" class="form__control" required="" name="nickname" placeholder="Никнейм">
+                                          <input type="text" class="form__control nickname_my_impute" required="" name="nickname" placeholder="Никнейм">
                                       </div>
                                   </div>
                               </div>
                               <div class="form__group">
-                                  <textarea name="text" required="" class="form__control" placeholder="Текст комментария ..."></textarea>
+                                  <textarea name="text" required="" class="form__control_ text_my_input" placeholder="Текст комментария ..."></textarea>
                               </div>
                               <div class="form__group">
                                   <input type="submit" class="form__control" name="do_post" value="Добавить комментарий">
                               </div>
+                              <div id="submit_div" class="form__controlmy"> My button </div>
+                              <div id="position_button"><p>TXT button</p></div>
                           </form>
                       </div>
                   </div>

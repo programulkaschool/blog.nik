@@ -21,11 +21,56 @@ jQuery( document ).ready(function() {
     jQuery (".block.new_text").after(jQuery(".block.new_text").clone());
     jQuery (".content__left .block").each(function () {
 
-        var number_posts=$(this).find("article").length;
-        $(this).children("a").append(" "+number_posts);
+        var number_posts = $(this).find("article").length;
+        $(this).children("a").append(" " + number_posts);
+    });
+        /*Click*/
+  /*     var i = 1;
 
+        jQuery("#submit_div").click(function () {
+            console.log("click");
+            jQuery(this).after('<div class="form__controlmy">MY BUTTOM ' + i + '</div>');
+            i++;
+        });
+          jQuery(".form__controlmy").click(function () {
+           var name=jQuery(this).text();
+           console.log(name);
+          });
+
+
+        /* jQuery( ".form__controlmy" ).on( "click", function() {
+             var name=jQuery(this).text();
+             console.log(name);
+         });*/
+
+    /*   jQuery("body").on("click", ".form__controlmy", function () {
+            var name = jQuery(this).text();
+            console.log(name);
+            jQuery("#position_button p").text(name);
+        });
+*/
+    var my_input_object = {};
+    var val_inp_my= "";
+    var name_inp_my= "";
+    jQuery("body").on("click", ".form__controlmy", function () {
+        jQuery('#form_comments input[type="text"], #form_comments textarea').each(function(){
+
+
+            val_inp_my=                          jQuery(this).val();
+            name_inp_my=                         jQuery(this).attr("name");
+            my_input_object[name_inp_my] =       val_inp_my;
+
+        });
+        console.log(my_input_object);
+    });
 
     });
 
 
-});
+
+
+
+
+
+
+

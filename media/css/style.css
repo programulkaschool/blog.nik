@@ -234,3 +234,8 @@ body {
   .form input[type="submit"].form__control:hover {
     cursor: pointer;
     opacity: 1; }
+.form__controlmy{
+  cursor: pointer;
+  border: 1px solid;
+  padding: 10px;
+}
