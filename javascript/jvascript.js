@@ -49,6 +49,7 @@ jQuery(document).ready(function () {
     var object_input = {};
     var val_input = "";
     var name_inp = "";
+    var page_id = "";
 
 
 
@@ -61,7 +62,25 @@ jQuery(document).ready(function () {
             object_input[name_inp] = val_input;
 
         });
+
+        page_id = jQuery('#comment').attr('id_page');
+
         console.log(object_input);
+
+
+
+        jQuery.ajax({
+            url : '/include/ajaxcontrol.php',
+            type : 'POST',
+            data : {object_input_aj: object_input,  page_id_aj: page_id },
+            success: function(data, status, xhr){
+                jQuery('#submit_div p').html(data);
+            },
+            error: function (jqXhr, textStatus, errorMessage){
+                jQuery('#submit_div p').append('Error' + errorMessage);
+            }
+        });
+
 
 
 

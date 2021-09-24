@@ -12,9 +12,9 @@ require ('config/config.php');
     <!-- Bootstrap Grid -->
     <link rel="stylesheet" type="text/css" href="media/assets/bootstrap-grid-only/css/grid12.css">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-
+-->
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="media/css/style.css">
     <script src="/javascript/jQuery.min.js" type="text/javascript"></script>

@@ -91,31 +91,9 @@ require ('include/head.php');
                             <div class="block" id="comment-add-form">
                                 <h3>Добавить комментарий</h3>
                                 <div class="block__content">
-                                    <form id="comment" class="form" method="post" action="article.php?id=<?php echo $art['id'];?>">
+                                    <form id_page=<?php echo $art['id']?> id="comment" class="form" method="post" action="article.php?id=<?php echo $art['id'];?>">
 
-                                        <?php
-                                       //var_dump($_POST['text']);
 
-                                        if (isset($_POST['do_post'])) {
-                                            $error = array();
-                                            if ($_POST['name'] == '') {
-                                                $error [] = 'Введіть Ім\'я';
-                                            }
-                                            if ($_POST['nickname'] == '') {
-                                                $error [] = 'Введіть Нік';
-                                            }
-                                            if ($_POST['text'] == '') {
-                                                $error [] = 'Введіть Текст комментария';
-                                            }
-                                            if (empty($error)) {
-                                                mysqli_query($connection, "INSERT INTO `comments` (`name`, `author`, `text`, `date`, `articles_id`) VALUES ('".$_POST['name']."', '".$_POST['nickname']."', '".$_POST['text']."', NOW() , '".$art['id']."')");
-                                                echo '<span style="color: #00d118; font-weight: bold;">Комент добавлений</span><hr>';
-                                            } else {
-                                                echo'<span style="color: red; font-weight: bold;">'.$error[0].'</span><hr>';
-                                            }
-                                        }
-
-                                        ?>
                                         <div class="form__group">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -132,7 +110,7 @@ require ('include/head.php');
                                         <div class="form__group">
                                             <input type="submit" class="form__control" name="do_post" value="Добавить комментарий">
                                         </div>
-                                        <div id="submit_div" class="form__control_my">button000</div>
+                                        <div id="submit_div" class="form__control_my"><p></p>button000</div>
 
                                     </form>
                                 </div>
