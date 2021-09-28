@@ -1,5 +1,5 @@
 <?php
-require ('include/head.php');
+include ('include/head.php');
 ?>
 <body>
 

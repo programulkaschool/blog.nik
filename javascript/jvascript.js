@@ -65,7 +65,8 @@ jQuery(document).ready(function () {
 
         page_id = jQuery('#comment').attr('id_page');
 
-        console.log(object_input);
+        console.log(page_id);
+        console.log( object_input);
 
 
 
@@ -73,6 +74,7 @@ jQuery(document).ready(function () {
             url : '/include/ajaxcontrol.php',
             type : 'POST',
             data : {object_input_aj: object_input,  page_id_aj: page_id },
+
             success: function(data, status, xhr){
                 jQuery('#submit_div p').html(data);
             },
