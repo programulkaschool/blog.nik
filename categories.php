@@ -24,25 +24,14 @@ require('include/head.php');
         <div class="container">
             <div class="row">
                 <section class="content__left col-md-8">
-
-                    <?php
-             if (isset($_GET['id'])) {
-                    $articles_pos= mysqli_query($connection, "SELECT * FROM `articles` WHERE `categorie_id`=".(int)$_GET['id']);
-//var_dump($articles);
-                    if (mysqli_num_rows($articles_pos) <= 0) {
-                    }else{
-                        $art=mysqli_fetch_assoc($articles_pos);
-                       //var_dump($art);
-                    }
-             }
-                    ?>
-
-
-
-
                     <div class="block new_text">
                         <a href="#">Все записи</a>
-                        <?php  echo  "<h3>".$art['title']."</h3>" ?>
+                     <?php   foreach ($categories_array as $value) {
+                        if ($value ["id"] == $_GET['id']) {
+                            echo  "<h3>".$value['title']."</h3>";
+                        break;
+                        }
+                        } ?>
 
                         <div class="block__content">
                             <div class="articles articles__horizontal  new_post">
@@ -63,14 +52,12 @@ require('include/head.php');
                                             ...</a>
                                         <div class="article__info__meta">
                                             <?php
-                                            foreach ($categories_array as $value) {
-                                                if ($value ["id"] == $articles['categorie_id']) {
-                                                    echo '<small>Категория: <a href="categories.php?id=' . $value ["id"] . '">';
-                                                    echo $value ["title"];
+
+                                                    echo '<small>Кількість переглядів:'.$articles['views'];
                                                     echo '</a></small>';
-                                                    break;
-                                                }
-                                            }
+
+
+
                                             ?>
 
 
