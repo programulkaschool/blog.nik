@@ -20,18 +20,26 @@ require ('include/head.php');
             <div class="row">
                 <?php
                 if (isset($_GET['id'])) {
-                // var_dump($_GET['id']);
-
                 $articles_cat = mysqli_query($connection, "SELECT * FROM `articles` WHERE `categoria_id`=" . (int)$_GET['id']);
-
-
-
 
                 ?>
                 <section class="content__left col-md-8">
                     <div class="block new_text">
-                        <a href="#">Все записи</a>
-                        <h3>Новейшее_в_блоге</h3>
+
+                        <?php
+                        //var_dump($categories_array );
+                        foreach ($categories_array as $value) {
+                            // var_dump($articles['categoria_id']);
+                            if ($value ["id"] ==$_GET['id']) {
+                                echo '<small><h3>';
+                                echo $value ["title"];
+                                echo '</h3></small>';
+                                break;
+                            }
+                        }
+                        ?>
+
+
                         <div class="block__content">
 
 
@@ -41,7 +49,7 @@ require ('include/head.php');
                                 echo '<p>Поста немає</p>';
                             } else {
                                 //$art = mysqli_fetch_assoc($articles_cat);
-                                //  var_dump($art);
+                                //
                                 ?>
                             <div class="articles articles__horizontal new_post">
 
@@ -61,15 +69,13 @@ require ('include/head.php');
                                             <div class="article__info__meta">
                                                 <?php
                                                 //var_dump($categories_array );
-                                                foreach ($categories_array as $value) {
+
                                                     // var_dump($articles['categoria_id']);
-                                                    if ($value ["id"] == $articles['categoria_id']) {
-                                                        echo '<small>Категория: <a href="categories.php?id=' . $value ["id"] . '">';
-                                                        echo $value ["title"];
-                                                        echo '</a></small>';
-                                                        break;
-                                                    }
-                                                }
+
+                                                        echo '<small><p>Переглядів ';
+                                                        echo $articles['views'];
+                                                        echo '</p></small>';
+
                                                 ?>
 
                                             </div>
