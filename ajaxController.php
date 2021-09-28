@@ -1,5 +1,5 @@
 <?php
-require('config/config.php');
+include('config/config.php');
 
 if (isset($_POST['my_input_object'])) {
     $error = array();
@@ -15,7 +15,8 @@ if (isset($_POST['my_input_object'])) {
    /* if (empty($error)) {
         echo '<span style="color: #00d118; font-weight: bold;">Комент добавлений</span><hr>';
         echo $_POST['my_input_object']['name'];
-    }*/
+    }
+   */
 
     if (empty($error)) {
     mysqli_query($connection, "INSERT INTO `comments` (`name`, `author`, `text`, `date`, `articles_id`) VALUES ('".$_POST['my_input_object']['name']."', '".$_POST['my_input_object']['nickname']."', '".$_POST['my_input_object']['text']."', NOW() , '".$_POST['page_id']."')");

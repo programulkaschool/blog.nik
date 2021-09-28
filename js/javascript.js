@@ -63,7 +63,7 @@ jQuery( document ).ready(function() {
 
         });
 
-        page_id=jQuery('form_comments').attr("id_page")
+        page_id=jQuery('#form_comments').attr("id_page")
 
         console.log(my_input_object);
 
