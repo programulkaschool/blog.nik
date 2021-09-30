@@ -7,8 +7,8 @@ require('config/config.php');
     <meta charset="UTF-8">
     <title><?php echo $config ['title']; ?></title>
 
-    <!-- Bootstrap Grid -->
-    <link rel="stylesheet" type="text/css" href="media/assets/bootstrap-grid-only/css/grid12.css">
+    <!-- Bootstrap Grid
+    <link rel="stylesheet" type="text/css" href="media/assets/bootstrap-grid-only/css/grid12.css">-->
 
     <!-- Google Fonts
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -21,4 +21,5 @@ require('config/config.php');
     <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
