@@ -27,5 +27,7 @@ if (isset($_POST['my_input_object'])) {
     }
 }
 
-
+if (isset($_POST['delete_post'])) {
+    mysqli_query($connection, "DELETE FROM `articles` WHERE `id`=".$_POST['delete_post']);
+};
 

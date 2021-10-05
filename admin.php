@@ -2,7 +2,6 @@
 require('include/head.php');
 
 
-
 ?>
 <body>
 
@@ -10,7 +9,6 @@ require('include/head.php');
     <?php
     include('include/header.php');
     ?>
-
 
 
     <div id="content">
@@ -32,34 +30,44 @@ require('include/head.php');
                                 <th scope="col">Назва</th>
                                 <th scope="col">Категорія</th>
                                 <th scope="col">Дата</th>
+                                <th scope="col">ON/OF</th>
+                                <th scope="col">DELETE</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
+                            $i = 1;
+
+
                             $articles = mysqli_query($connection, "SELECT * FROM `articles`  ");
-                            while($articles_oll = mysqli_fetch_assoc($articles)) {
-                               echo $articles_oll['title'];
-
+                            while ($articles_oll = mysqli_fetch_assoc($articles)) {
+                                //  var_dump($articles_oll);
                                 ?>
+
+
                                 <tr>
-                                <th scope="row">1</th>
-                                <td> <?php echo $articles_oll['title']; ?></td>
-                            </tr>
+                                    <th scope="row"><?php echo $i++; ?></th>
+                                    <td> <a href="article.php?id=<?php echo $articles_oll['id']; ?>"><?php echo $articles_oll['title'];?></a></td>
+                                    <td><?php
+                                        foreach ($categories_array as $value) {
+                                            if ($value ["id"] == $articles_oll['categorie_id']) {
+                                                echo '<a href="categories.php?id=' . $value ["id"] . '">';
+                                                echo $value ["title"];
+                                                echo '</a>';
+                                                break;
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?php echo $articles_oll['pubdate']; ?></td>
+                                    <td><div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="on_of">
+                                            <label class="form-check-label" for="on_of"></label>
+                                        </div></td>
+                                    <td><button type="button" id_delete="<?php echo $articles_oll['id']; ?>" class="btn btn-outline-danger delete_post" ">DELETE</button></td>
+                                </tr>
 
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <?php      }
-
+                            <?php }
 
 
                             ?>
@@ -68,34 +76,18 @@ require('include/head.php');
                         <!-- Контент -->
 
 
-
-
-
-
-
-
-                        </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                </section>
-
             </div>
+
+
+            </section>
+
         </div>
     </div>
-    <?php
-    include('include/footer.php');
-    ?>
+</div>
+<?php
+include('include/footer.php');
+?>
 
 
 </div>
