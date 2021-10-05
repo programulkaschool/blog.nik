@@ -28,6 +28,12 @@ if (isset($_POST['object_input_aj'])) {
     }
 
 }
+if (isset($_POST['id_del_ajax'])) {
+    mysqli_query($connection, "DELETE FROM `articles` WHERE `id` =".$_POST['id_del_ajax']);
 
+
+
+
+}
 
 

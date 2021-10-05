@@ -113,9 +113,37 @@ jQuery(document).ready(function () {
 
 
 
+    var id_del = " ";
+
+    jQuery("body").on( "click", ".btn.btn-primary",function(){
+       id_del = jQuery(this).attr('id_delete');
+
+        console.log(id_del);
+
+
+        jQuery.ajax({
+            url : '/include/ajaxcontrol.php',
+            type : 'POST',
+            data : {id_del_ajax: id_del },
+
+            success: function(data, status, xhr){
+               // jQuery('#submit_div p').html(data);
+                alert("post delete");
+                location.reload();
+            },
+            error: function (jqXhr, textStatus, errorMessage){
+             //   jQuery('#submit_div p').append('Error' + errorMessage);
+            }
+        });
 
 
 
+
+
+
+
+
+    });
 
 
 
