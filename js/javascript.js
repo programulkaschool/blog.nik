@@ -91,14 +91,14 @@ jQuery(document).ready(function () {
         jQuery('#tabs .tabs-nav a').click(function () {
             tab.hide();
             tab.filter(this.hash).show();
-            $('#tabs .tabs-nav a').removeClass('active');
-            $(this).addClass('active');
+            jQuery('#tabs .tabs-nav a').removeClass('active');
+            jQuery(this).addClass('active');
             return false;
         }).filter(':first').click();
 
         // Клики по якорным ссылкам.
         jQuery('.tabs-target').click(function () {
-            $('#tabs .tabs-nav a[href=' + $(this).data('id') + ']').click();
+            jQuery('#tabs .tabs-nav a[href=' + $(this).data('id') + ']').click();
         });
     });
 
@@ -107,20 +107,84 @@ jQuery(document).ready(function () {
     jQuery("body").on("click", ".delete_post", function () {
         var delete_post_id = jQuery(this).attr('id_delete');
         console.log(delete_post_id);
+
+        var delet = confirm("Ви дійсно хочете видалити даний пост?");
+        if (delet == true) {
+            jQuery.ajax({
+                url: 'ajaxController.php',
+                type: 'Post',
+                data: {delete_post: delete_post_id},
+                success: function (data, status, xhr) {
+                    alert('Post delete');
+                    location.reload();
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                }
+            });
+        }
+
+
+    });
+
+
+    //////////////////////////////////// ON/OF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    jQuery("body").on("click", ".form-check-input", function () {
+        var checked = jQuery(this).prop('checked');
+        var id_on_of = jQuery(this).attr('id_on_of');
+        console.log(checked);
+        console.log(id_on_of);
         jQuery.ajax({
             url: 'ajaxController.php',
             type: 'Post',
-            data: {delete_post: delete_post_id},
+            data: {checked: checked, id_on_of: id_on_of},
             success: function (data, status, xhr) {
-                alert('Post delete');
-                location.reload();
             },
             error: function (jqXhr, textStatus, errorMessage) {
             }
         });
 
+    });
+
+
+//////////////////////////////////// ADD CATEGORIES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    jQuery("body").on("click", ".my_class", function () {
+        var title_category = jQuery('#text_cat').val();
+        jQuery.ajax({
+            url: 'ajaxController.php',
+            type: 'Post',
+            data: {add_title_category: title_category},
+            success: function (data, status, xhr) {
+                location.reload();
+                //jQuery('#my_add').html(data);
+                //jQuery('#text_cat').val('');
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                //jQuery('#my_add').append('Error' + errorMessage);
+            }
+        });
+    });
+//////////////////////////////////// DELETE CATEGORIES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+    jQuery("body").on("click", ".category_delete", function () {
+        var delete_category = jQuery(this).attr('id_delete_category');
+        console.log(delete_category);
+        var delete_category = confirm("Ви дійсно хочете видалити дану категорію?");
+        if (delete_category == true) {
+            jQuery.ajax({
+                url: 'ajaxController.php',
+                type: 'Post',
+                data: {delete_category: delete_category},
+                success: function (data, status, xhr) {
+                    alert('Post delete');
+                    location.reload();
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                }
+            });
+        }
+    });
+
 
 });
-});
-
-
