@@ -115,24 +115,190 @@ jQuery(document).ready(function () {
 
     var id_del = " ";
 
-    jQuery("body").on( "click", ".btn.btn-primary",function(){
+    jQuery("body").on( "click", ".post_delete",function(){
        id_del = jQuery(this).attr('id_delete');
 
         console.log(id_del);
 
 
+        var del=confirm("Видалити пост?");
+        if (del==true){
+
+            jQuery.ajax({
+                url : '/include/ajaxcontrol.php',
+                type : 'POST',
+                data : {id_del_ajax: id_del },
+
+                success: function(data, status, xhr){
+                    // jQuery('#submit_div p').html(data);
+                   // alert("post delete");
+                    location.reload();
+                },
+                error: function (jqXhr, textStatus, errorMessage){
+                    //   jQuery('#submit_div p').append('Error' + errorMessage);
+                }
+            });
+
+
+
+        } else {
+            alert("Пост НЕ видалено");
+        }
+
+
+
+
+    });
+
+
+
+
+    jQuery("body").on( "click", ".checks",function(){
+        //console.log("chek");
+        var  chek = 0;
+        //console.log(chek);
+        if($(this).is(":checked")){
+            chek = 1;
+           //console.log("on");
+        }
+        //console.log(chek);
+
+       var id_on = jQuery(this).attr('id_on_off');
+        console.log(id_on);
+
+
         jQuery.ajax({
             url : '/include/ajaxcontrol.php',
             type : 'POST',
-            data : {id_del_ajax: id_del },
+            data : {chek_ajax: chek,  id_on_ajax: id_on },
 
             success: function(data, status, xhr){
                // jQuery('#submit_div p').html(data);
-                alert("post delete");
+            },
+            error: function (jqXhr, textStatus, errorMessage){
+                //jQuery('#submit_div p').append('Error' + errorMessage);
+            }
+        });
+
+
+    });
+
+
+
+
+    jQuery("body").on( "click", ".my_add",function(){
+      //console.log("klik");
+       var tt = (jQuery('.txt').val());
+        //console.log(tt);
+
+        jQuery.ajax({
+            url : '/include/ajaxcontrol.php',
+            type : 'POST',
+            data : {tt_ajax: tt},
+
+            success: function(data, status, xhr){
+               // jQuery('#my_add p').html(data);
                 location.reload();
             },
             error: function (jqXhr, textStatus, errorMessage){
-             //   jQuery('#submit_div p').append('Error' + errorMessage);
+                //jQuery('#submit_div p').append('Error' + errorMessage);
+            }
+        });
+
+
+
+
+
+    });
+
+
+    jQuery("body").on( "click", ".my_update",function(){
+        //console.log("klik");
+
+       //var upd = jQuery(this).closest(".wrap").find("input.my_upd").val();
+
+        //var upd = jQuery(this).prevAll("input.my_upd").val();
+       //var upd = jQuery(this).prev(".my_upd").val();
+        var upd = jQuery(this).siblings("input.my_upd").val();
+      //  var upd = jQuery(this).find(".my_upd").val();
+
+        var id_upd = jQuery(this).attr('id_update');
+        console.log(upd);
+        console.log(id_upd);
+        jQuery.ajax({
+            url : '/include/ajaxcontrol.php',
+            type : 'POST',
+            data : {upd: upd, id_upd: id_upd},
+
+            success: function(data, status, xhr){
+                // jQuery('#my_add p').html(data);
+               // location.reload();
+            },
+            error: function (jqXhr, textStatus, errorMessage){
+                //jQuery('#submit_div p').append('Error' + errorMessage);
+            }
+        });
+
+
+
+    });
+
+
+
+
+    jQuery("body").on( "click", ".my_delete",function(){
+        //console.log("klik");
+        var id_delete = jQuery(this).attr("id_delete");
+
+        //console.log(id_delete);
+
+        jQuery.ajax({
+            url : '/include/ajaxcontrol.php',
+            type : 'POST',
+            data : {id_delete: id_delete },
+
+            success: function(data, status, xhr){
+                // jQuery('#submit_div p').html(data);
+                // alert("post delete");
+                location.reload();
+            },
+            error: function (jqXhr, textStatus, errorMessage){
+                //   jQuery('#submit_div p').append('Error' + errorMessage);
+            }
+        });
+
+    });
+
+
+
+
+    jQuery("body").on( "click", ".my_add_post",function(){
+        //console.log("klik");
+
+        var add_titl = jQuery('.my_title_post').val();
+        console.log(add_titl);
+
+        var add_text = jQuery('textarea.my_text_post').val();
+        console.log(add_text);
+
+        var add_id = jQuery('option.my_categ').val();
+        console.log(add_id);
+
+
+
+
+
+        jQuery.ajax({
+            url : '/include/ajaxcontrol.php',
+            type : 'POST',
+            data : {add_titl: add_titl, add_text: add_text, add_id: add_id},
+
+            success: function(data, status, xhr){
+                // jQuery('#my_add p').html(data);
+                // location.reload();
+            },
+            error: function (jqXhr, textStatus, errorMessage){
+                //jQuery('#submit_div p').append('Error' + errorMessage);
             }
         });
 
@@ -143,7 +309,15 @@ jQuery(document).ready(function () {
 
 
 
+
     });
+
+
+
+
+
+
+
 
 
 
