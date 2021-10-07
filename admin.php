@@ -127,12 +127,13 @@ require('include/head.php');
 
 
                                             <div class="input-group">
-                                                <input type="text" class="form-control"
+                                                <input type="text" class="form-control text_up"
+                                                       id="text_up"
                                                        value="<?php echo $cat['title'] ?>"
                                                        placeholder="Recipient's username"
                                                        aria-label="Recipient's username with two button addons">
-                                                <button class="btn btn-outline-secondary" type="button">Update</button>
-                                                <button class="btn btn-outline-secondary category_delete"  id_delete_category="<?php echo $cat['id'] ?>" type="button">Delete</button>
+                                                <button class="btn btn-outline-secondary category_update"  category_update_id="<?php echo $cat['id'] ?>" type="button">Update</button>
+                                                <button class="btn btn-outline-secondary category_delete"  category_delete_id="<?php echo $cat['id'] ?>" type="button">Delete</button>
                                             </div>
 
                                     </td>

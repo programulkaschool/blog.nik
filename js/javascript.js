@@ -168,10 +168,10 @@ jQuery(document).ready(function () {
 //////////////////////////////////// DELETE CATEGORIES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     jQuery("body").on("click", ".category_delete", function () {
-        var delete_category = jQuery(this).attr('id_delete_category');
+        var delete_category = jQuery(this).attr('category_delete_id');
         console.log(delete_category);
-        var delete_category = confirm("Ви дійсно хочете видалити дану категорію?");
-        if (delete_category == true) {
+        var delet = confirm("Ви дійсно хочете видалити даний пост?");
+        if (delet == true) {
             jQuery.ajax({
                 url: 'ajaxController.php',
                 type: 'Post',
@@ -185,6 +185,45 @@ jQuery(document).ready(function () {
             });
         }
     });
+
+
+//////////////////////////////////// UPDATE CATEGORIES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+jQuery("body").on("click", ".category_update", function () {
+    var up_cat_id = jQuery(this).attr('category_update_id');
+
+        var val_cate =jQuery(this).prevAll(".text_up").val();
+
+        console.log(up_cat_id);
+        console.log(val_cate);
+    jQuery.ajax({
+        url: 'ajaxController.php',
+        type: 'Post',
+        data: {up_cat_id: up_cat_id, val_cate: val_cate },
+        success: function (data, status, xhr) {
+            //location.reload();
+
+        },
+        error: function (jqXhr, textStatus, errorMessage) {
+        }
+    });
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

@@ -50,3 +50,8 @@ if (isset($_POST['add_title_category'])) {
 if (isset($_POST['delete_category'])) {
     mysqli_query($connection, "DELETE FROM `articles_categories` WHERE `id`=" . $_POST['delete_category']);
 };
+//////////////////////////////////// UPDATE CATEGORIES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+if (isset($_POST['up_cat_id']) && isset($_POST['val_cate'])) {
+
+    mysqli_query($connection, "UPDATE `articles_categories` SET `title`=" . $_POST['val_cate'] . " WHERE `id`=" . $_POST['up_cat_id']);
+}
