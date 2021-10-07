@@ -129,7 +129,7 @@ jQuery(document).ready(function () {
 
     //////////////////////////////////// ON/OF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-    jQuery("body").on("click", ".form-check-input", function () {
+    jQuery("body").on("click", ".check_on_of", function () {
         var checked = jQuery(this).prop('checked');
         var id_on_of = jQuery(this).attr('id_on_of');
         console.log(checked);
@@ -190,40 +190,58 @@ jQuery(document).ready(function () {
 //////////////////////////////////// UPDATE CATEGORIES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-jQuery("body").on("click", ".category_update", function () {
-    var up_cat_id = jQuery(this).attr('category_update_id');
+    jQuery("body").on("click", ".category_update", function () {
+        var up_cat_id = jQuery(this).attr('category_update_id');
 
-        var val_cate =jQuery(this).prevAll(".text_up").val();
+        var val_cate = jQuery(this).prevAll(".text_up").val();
 
         console.log(up_cat_id);
         console.log(val_cate);
-    jQuery.ajax({
-        url: 'ajaxController.php',
-        type: 'Post',
-        data: {up_cat_id: up_cat_id, val_cate: val_cate },
-        success: function (data, status, xhr) {
-            //location.reload();
+        jQuery.ajax({
+            url: 'ajaxController.php',
+            type: 'Post',
+            data: {up_cat_id: up_cat_id, val_cate: val_cate},
+            success: function (data, status, xhr) {
+                location.reload();
 
-        },
-        error: function (jqXhr, textStatus, errorMessage) {
-        }
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+            }
+        });
+
+
     });
+//////////////////////////////////// ADD POST \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    jQuery("body").on("click", ".add_post", function () {
+        var add_title_post = jQuery('#title_post').val();
+        var add_text_post = jQuery('#text_post').val();
+        var select_category_post = jQuery('#select_category_post').val();
+        var Add_on_of = jQuery('#Add_on_of').prop('checked_on');
+        console.log(add_title_post);
+        console.log(add_text_post);
+        console.log(select_category_post);
+        console.log(Add_on_of);
 
 
+        jQuery.ajax({
+            url: 'ajaxController.php',
+            type: 'Post',
+            data: {
+                add_title_post: add_title_post,
+                add_text_post: add_text_post,
+                select_category_post: select_category_post,
+                Add_on_of: Add_on_of
+            },
+            success: function (data, status, xhr) {
+                //  location.reload();
 
-});
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+            }
+        });
 
 
-
-
-
-
-
-
-
-
-
-
+    });
 
 
 });

@@ -74,7 +74,7 @@ require('include/head.php');
                                                     }
 
                                                     ?>
-                                                    <input class="form-check-input" type="checkbox"
+                                                    <input class="form-check-input check_on_of" type="checkbox"
                                                            id_on_of="<?php echo $articles_oll['id']; ?>" <?php echo $checked; ?>
                                                            id="on_of<?php echo $i++; ?>">
 
@@ -94,7 +94,7 @@ require('include/head.php');
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tabs-item" id="tab-1">
+                            <div class="tabs-item" id="tab-3">
                                 <table class="table table-striped table-dark">
                                     <thead>
                                     <tr>
@@ -119,25 +119,26 @@ require('include/head.php');
                                             <div id="my_add"><p></p></div>
                                         </td>
                                         <?php
-                                        $categories_select = mysqli_query($connection, "SELECT * FROM `articles_categories` ORDER BY `id` DESC ");
-                                        while ($cat = mysqli_fetch_assoc($categories_select)) {
-                                        ?>
+                                        foreach ($categories_array as $cat) { ?>
                                     </tr>
                                     <td>
 
-
-                                            <div class="input-group">
-                                                <input type="text" class="form-control text_up"
-                                                       id="text_up"
-                                                       value="<?php echo $cat['title'] ?>"
-                                                       placeholder="Recipient's username"
-                                                       aria-label="Recipient's username with two button addons">
-                                                <button class="btn btn-outline-secondary category_update"  category_update_id="<?php echo $cat['id'] ?>" type="button">Update</button>
-                                                <button class="btn btn-outline-secondary category_delete"  category_delete_id="<?php echo $cat['id'] ?>" type="button">Delete</button>
-                                            </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control text_up"
+                                                   id="text_up"
+                                                   value="<?php echo $cat['title'] ?>"
+                                                   placeholder="Recipient's username"
+                                                   aria-label="Recipient's username with two button addons">
+                                            <button class="btn btn-outline-secondary category_update"
+                                                    category_update_id="<?php echo $cat['id'] ?>" type="button">Update
+                                            </button>
+                                            <button class="btn btn-outline-secondary category_delete"
+                                                    category_delete_id="<?php echo $cat['id'] ?>" type="button">Delete
+                                            </button>
+                                        </div>
 
                                     </td>
-                                    </tr>
+
                                     <?php
                                     }
                                     //var_dump($categories_array);
@@ -145,8 +146,74 @@ require('include/head.php');
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tabs-item" id="tab-3">
-                                <strong>Текст вкладки №3</strong>
+                            <div class="tabs-item" id="tab-1">
+                                <table class="table table-striped table-dark">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">№</th>
+                                        <th scope="col">TITLE</th>
+                                        <th scope="col">TEXT</th>
+                                        <th scope="col">CATEGORY</th>
+                                        <th scope="col">ON/OF</th>
+                                        <th scope="col"></th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="title_post" class="form-control"
+                                                       placeholder="Title"
+                                                       aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-floating">
+                                                <textarea class="form-control" id="text_post" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                                <label for="floatingTextarea">Comments</label>
+                                            </div>
+                                        </td>
+
+
+
+
+                                        <td>
+
+                                            <select class="form-select" id="select_category_post" aria-label="Default select example">
+                                                <option selected>Select category</option>
+                                                <?php
+                                                foreach ($categories_array as $cat) { ?>
+                                                <option value="<?php echo $cat['id'] ?>" id=""><?php echo $cat['title'] ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+
+                                        </td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                <?php
+                                                $checked_on = '';
+                                                if ($articles_oll['post_look'] == 1) {
+                                                    $checked_on = 'checked';
+                                                }
+
+                                                ?>
+                                                <input class="form-check-input" type="checkbox" id="Add_on_of">
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-success add_post">ADD POST
+                                            </button>
+                                        </td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
