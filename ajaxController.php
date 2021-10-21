@@ -68,7 +68,7 @@ if (isset($_POST['up_cat_id']) && isset($_POST['val_cate'])) {
 
 
 //////////////////////////////////// ADD POST \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-/*if (isset($_POST['add_title_post']) && isset($_POST['add_text_post']) && isset($_POST['select_category_post'])) {
+if (isset($_POST['add_title_post']) && isset($_POST['add_text_post']) && isset($_POST['select_category_post']) && isset($_POST['add_on_of'])) {
 
-    mysqli_query($connection, "INSERT INTO `articles` (`title`, `text`, `categorie_id`, `img`, `pubdate`, `views`, `post_look`) VALUES ('" . $_POST['add_title_post'] . "', '" . $_POST['add_text_post'] . "', '" . $_POST['select_category_post'] ."', '', CURRENT_TIMESTAMP, '0', '1')");
+    mysqli_query($connection, "INSERT INTO `articles` (`title`, `text`, `categorie_id`, `img`, `pubdate`, `views`, `post_look`) VALUES ('" . $_POST['add_title_post'] . "', '" . $_POST['add_text_post'] . "', '" . $_POST['select_category_post'] ."', '', CURRENT_TIMESTAMP, '0', '" . $_POST['add_on_of'] . "')");
 }

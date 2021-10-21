@@ -216,11 +216,17 @@ jQuery(document).ready(function () {
         var add_title_post = jQuery('#title_post').val();
         var add_text_post = jQuery('#text_post').val();
         var select_category_post = jQuery('#select_category_post').val();
-        var Add_on_of = jQuery('#Add_on_of').prop('checked_on');
+        var add_on_of = '';
+           if ( jQuery('#Add_on_of').prop('checked')) {
+            add_on_of=1;
+        }else {
+            add_on_of=0;
+        }
+
         console.log(add_title_post);
         console.log(add_text_post);
         console.log(select_category_post);
-        console.log(Add_on_of);
+        console.log(add_on_of);
 
 
         jQuery.ajax({
@@ -230,7 +236,7 @@ jQuery(document).ready(function () {
                 add_title_post: add_title_post,
                 add_text_post: add_text_post,
                 select_category_post: select_category_post,
-                Add_on_of: Add_on_of
+                add_on_of: add_on_of
             },
             success: function (data, status, xhr) {
                 //  location.reload();

@@ -201,7 +201,7 @@ require('include/head.php');
                                                 }
 
                                                 ?>
-                                                <input class="form-check-input" type="checkbox" id="Add_on_of">
+                                                <input class="form-check-input" type="checkbox" id="Add_on_of" <?php echo $checked_on; ?>>
 
                                             </div>
                                         </td>
